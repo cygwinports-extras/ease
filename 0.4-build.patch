@@ -1,0 +1,58 @@
+--- origsrc/ease-0.4/ease/Makefile.am	2010-10-15 14:26:31.000000000 -0500
++++ src/ease-0.4/ease/Makefile.am	2010-12-21 00:45:32.175625000 -0600
+@@ -45,13 +45,14 @@ ease_CFLAGS = \
+ 	-DEASE_DATA_DIR=\"$(datadir)\" \
+ 	-I$(top_srcdir)/ease-core \
+ 	-I$(top_srcdir)/flutter \
+-	-include $(top_srcdir)/config.h
++	-include $(top_builddir)/config.h
+ 
+-ease_LDFLAGS = $(EASE_LIBS) --export-dynamic
++ease_LDFLAGS = -export-dynamic
+ 
+ ease_LDADD = \
+ 	$(top_builddir)/ease-core/libease-core-@EASE_CORE_VERSION@.la \
+ 	$(top_builddir)/flutter/libflutter-@FLUTTER_VERSION@.la \
++	$(EASE_LIBS)
+ 	-lm \
+ 	$(NULL)
+ 
+--- origsrc/ease-0.4/ease-core/Makefile.am	2010-09-25 13:23:47.000000000 -0500
++++ src/ease-0.4/ease-core/Makefile.am	2010-12-21 00:45:12.254390200 -0600
+@@ -77,19 +77,20 @@ libease_core_@EASE_CORE_VERSION@_la_VALA
+ 	$(NULL)
+ 
+ libease_core_@EASE_CORE_VERSION@_la_LIBADD = \
+-	$(top_builddir)/flutter/libflutter-@FLUTTER_VERSION@.la
++	$(top_builddir)/flutter/libflutter-@FLUTTER_VERSION@.la \
++	$(EASE_LIBS)
+ 
+ libease_core_@EASE_CORE_VERSION@_la_CFLAGS = \
+ 	$(EASE_CFLAGS) \
+ 	-w \
+ 	-DEASE_DATA_DIR=\"$(datadir)\" \
+-	-include $(top_srcdir)/config.h \
++	-include $(top_builddir)/config.h \
+ 	-I$(top_srcdir)/flutter \
+ 	$(NULL)
+ 	
+ libease_core_@EASE_CORE_VERSION@_la_LDFLAGS = \
+-	$(EASE_LDFLAGS) \
+-	--export-dynamic \
++	-export-dynamic \
++	-no-undefined \
+ 	$(NULL)
+ 
+ # header installation
+--- origsrc/ease-0.4/flutter/Makefile.am	2010-08-23 05:43:57.000000000 -0500
++++ src/ease-0.4/flutter/Makefile.am	2010-12-20 21:27:14.053007900 -0600
+@@ -23,7 +23,8 @@ libflutter_@FLUTTER_VERSION@_la_VALAFLAG
+ 	$(NULL)
+ 
+ libflutter_@FLUTTER_VERSION@_la_CFLAGS = $(EASE_CFLAGS)
+-libflutter_@FLUTTER_VERSION@_la_LDFLAGS = $(EASE_LDFLAGS)
++libflutter_@FLUTTER_VERSION@_la_LDFLAGS = -no-undefined
++libflutter_@FLUTTER_VERSION@_la_LIBADD = $(EASE_LIBS)
+ 
+ # header installation
+ flutter_includedir=$(includedir)/flutter/
