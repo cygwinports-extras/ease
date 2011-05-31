@@ -1,4 +1,4 @@
 category: Gnome
-requires: libarchive2 libcairo2 libclutter-gst1.0_0 libclutter-gtk0.10_0 libclutter1.0_0 libgdk_pixbuf2.0_0 libgee2 libglib2.0_0 libgstreamer0.10_0 libgtk2.0_0 libintl8 libjson-glib1.0_0 libpango1.0_0 libpoppler-glib5 librest0.6_0 libunique1.0_0 libxml2
+requires: libarchive2 libcairo2 libclutter-gst1.0_0 libclutter-gtk0.10_0 libclutter1.0_0 libgdk_pixbuf2.0_0 libgee2 libglib2.0_0 libgstreamer0.10_0 libgtk2.0_0 libintl8 libjson-glib1.0_0 libpango1.0_0 libpoppler-glib6 librest0.6_0 libunique1.0_0 libxml2
 sdesc: "GNOME presentation creator"
 ldesc: "A presentation application for the GNOME Desktop"
