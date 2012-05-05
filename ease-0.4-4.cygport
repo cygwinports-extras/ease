@@ -2,3 +2,5 @@ inherit gnome2
 
 
 PATCH_URI="0.4-build.patch"
+
+KEEP_LA_FILES="none"

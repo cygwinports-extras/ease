@@ -1,3 +1,15 @@
+--- origsrc/ease-0.4/configure.ac	2010-10-15 17:40:22.000000000 -0500
++++ src/ease-0.4/configure.ac	2012-05-04 18:18:42.261408600 -0500
+@@ -53,8 +53,8 @@ GNOME_MAINTAINER_MODE_DEFINES
+ 
+ dnl packages
+ pkg_modules="\
+- clutter-gst-1.0\
+  clutter-gtk-0.10 >= 0.10\
++ clutter-gst-1.0\
+  gee-1.0\
+  gmodule-2.0\
+  json-glib-1.0 >= 0.7.6\
 --- origsrc/ease-0.4/ease/Makefile.am	2010-10-15 14:26:31.000000000 -0500
 +++ src/ease-0.4/ease/Makefile.am	2010-12-21 00:45:32.175625000 -0600
 @@ -45,13 +45,14 @@ ease_CFLAGS = \
