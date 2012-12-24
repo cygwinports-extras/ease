@@ -1,0 +1,14 @@
+inherit gnome2
+
+NAME="ease"
+VERSION=0.4
+RELEASE=5
+CATEGORY="GNOME"
+SUMMARY="GNOME presentation creator"
+DESCRIPTION="A presentation application for the GNOME Desktop"
+
+PKG_NAMES="ease ease-devel"
+ease_CONTENTS="--exclude=vala etc/ usr/bin/ usr/share/"
+ease_devel_CONTENTS="usr/include/ usr/lib/ usr/share/vala/"
+
+PATCH_URI="0.4-build.patch"
